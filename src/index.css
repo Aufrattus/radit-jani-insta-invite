@@ -2,39 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Wedding Instagram Design System - Romantic & Elegant
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Wedding Color Palette */
+    --background: 0 0% 98%;
+    --foreground: 345 25% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 345 25% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 345 25% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Wedding Primary - Rose Gold */
+    --primary: 345 65% 65%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 345 75% 75%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Wedding Secondary - Soft Pink */
+    --secondary: 340 25% 95%;
+    --secondary-foreground: 345 35% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Wedding Muted - Champagne */
+    --muted: 45 15% 92%;
+    --muted-foreground: 345 15% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Wedding Accent - Gold */
+    --accent: 45 85% 75%;
+    --accent-foreground: 345 25% 15%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 340 15% 88%;
+    --input: 340 15% 88%;
+    --ring: 345 65% 65%;
+
+    /* Wedding Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-romantic: linear-gradient(135deg, hsl(345 65% 75%), hsl(45 85% 85%));
+    --gradient-hero: linear-gradient(135deg, hsl(345 65% 65%), hsl(45 85% 75%));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(340 25% 98%));
+
+    /* Wedding Shadows */
+    --shadow-romantic: 0 10px 30px -5px hsl(345 65% 65% / 0.2);
+    --shadow-card: 0 4px 20px hsl(345 35% 25% / 0.1);
+    --shadow-glow: 0 0 40px hsl(345 65% 75% / 0.3);
 
     --radius: 0.5rem;
 
@@ -100,6 +117,69 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+/* Instagram-inspired animations and utilities */
+@layer utilities {
+  .story-ring {
+    background: var(--gradient-romantic);
+    padding: 2px;
+    border-radius: 50%;
+  }
+  
+  .story-inner {
+    background: white;
+    border-radius: 50%;
+    padding: 2px;
+  }
+  
+  .heart-pulse {
+    animation: heartPulse 1.5s ease-in-out infinite;
+  }
+  
+  .slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+  
+  .gradient-romantic {
+    background: var(--gradient-romantic);
+  }
+  
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  .shadow-romantic {
+    box-shadow: var(--shadow-romantic);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+}
+
+@keyframes heartPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
